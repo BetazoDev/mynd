@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mynd - Donde las mentes se entienden</title>
+    <meta name="description" content="Centro especializado en neuroentrenamiento, neurodesarrollo y psicoterapia. Un espacio para que tu mente se exprese.">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Heroicons / Lucide icons (via CDN for simplicity) -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Floating Navigation -->
+    <nav id="main-nav" class="glass-nav">
+        <div class="nav-container">
+            <div class="logo">
+                <span class="logo-text">mynd</span>
+            </div>
+            <ul class="nav-links">
+                <li><a href="#hero" class="active">Inicio</a></li>
+                <li><a href="#about">Conoce Mynd</a></li>
+                <li><a href="#services">Servicios</a></li>
+                <li><a href="#process">Proceso</a></li>
+                <li><a href="#contact">Contacto</a></li>
+            </ul>
+            <a href="#agenda" class="btn btn-primary btn-sm">Agendar Cita</a>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header id="hero" class="hero-section">
+        <div class="container">
+            <div class="hero-content">
+                <h1 class="fade-in">Un espacio para que tu mente se exprese, <span class="no-corrija">no se corrija.</span></h1>
+                <p class="hero-subtext fade-in-delay">Neuroentrenamiento, neurodesarrollo, evaluación y diagnóstico, aprendizaje y psicoterapia.</p>
+                <div class="hero-actions fade-in-delay">
+                    <a href="#agenda" class="btn btn-primary btn-lg">Agenda una cita informativa</a>
+                    <a href="#services" class="btn btn-outline btn-lg">Explorar servicios</a>
+                </div>
+            </div>
+            <div class="hero-image-wrapper fade-in">
+                <img src="hero.png" alt="Representación 3D de una mente brillante" class="floating-img">
+            </div>
+        </div>
+    </header>
+
+    <!-- About Section (Conoce Mynd) -->
+    <section id="about" class="about-section">
+        <div class="container glass-card">
+            <div class="about-grid">
+                <div class="about-image">
+                    <img src="about.png" alt="Neuro-conexiones" class="img-reveal">
+                </div>
+                <div class="about-text">
+                    <span class="section-tag">Conoce Mynd</span>
+                    <h2>Espacios que regulan, <span class="highlight">intervenciones que transforman.</span></h2>
+                    <p>En Mynd no trabajamos solo con lo que te pasa. Trabajamos entendiendo cómo funciona todo tu sistema. Integramos distintos tipos de terapia, evaluación clínica y herramientas basadas en neurociencia para entender, regular e intervenir de forma precisa en cada etapa del desarrollo.</p>
+                    <div class="features-list">
+                        <div class="feature-item">
+                            <i data-lucide="check-circle-2" class="icon-blue"></i>
+                            <div>
+                                <h3>Claridad desde el principio</h3>
+                                <p>Entendemos qué está pasando y te explicamos el proceso de forma clara y sin confusiones.</p>
+                            </div>
+                        </div>
+                        <div class="feature-item">
+                            <i data-lucide="zap" class="icon-blue"></i>
+                            <div>
+                                <h3>Intervenciones en tiempo real</h3>
+                                <p>Ajustamos el trabajo según cómo respondes tú y/o tu sistema, no seguimos protocolos rígidos.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="services-section">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">Nuestros Servicios</span>
+                <h2>Soluciones especializadas</h2>
+                <p>Abordamos procesos emocionales, cognitivos y conductuales desde la raíz.</p>
+            </div>
+            <div class="services-grid">
+                <div class="service-card glass">
+                    <i data-lucide="brain" class="service-icon"></i>
+                    <h3>Evaluación y diagnóstico</h3>
+                    <p>Comprender para intervenir con precisión.</p>
+                    <span class="duration">4-6 sesiones aprox.</span>
+                </div>
+                <div class="service-card glass">
+                    <i data-lucide="activity" class="service-icon"></i>
+                    <h3>Mapeo Cerebral qEEG</h3>
+                    <p>Mapa de funcionamiento cerebral detallado.</p>
+                    <span class="duration">35-40 mins.</span>
+                </div>
+                <div class="service-card glass highlight-card">
+                    <i data-lucide="waves" class="service-icon"></i>
+                    <h3>Neurofeedback</h3>
+                    <p>Entrenamiento cerebral para la regulación.</p>
+                    <span class="duration">30-50 mins.</span>
+                </div>
+                <div class="service-card glass">
+                    <i data-lucide="users" class="service-icon"></i>
+                    <h3>Terapia infantojuvenil</h3>
+                    <p>Atención especializada para niños y adolescentes.</p>
+                    <span class="duration">Sesiones variables.</span>
+                </div>
+                <div class="service-card glass">
+                    <i data-lucide="message-square" class="service-icon"></i>
+                    <h3>Terapia de lenguaje</h3>
+                    <p>Atención terapéutica en el lenguaje.</p>
+                    <span class="duration">50-60 mins.</span>
+                </div>
+                <div class="service-card glass">
+                    <i data-lucide="user" class="service-icon"></i>
+                    <h3>Terapia adultos</h3>
+                    <p>Atención psicológica para adultos.</p>
+                    <span class="duration">50-60 mins.</span>
+                </div>
+                <div class="service-card glass">
+                    <i data-lucide="home" class="service-icon"></i>
+                    <h3>Terapia familiar</h3>
+                    <p>Acompañamiento terapéutico integral.</p>
+                    <span class="duration">50-60 mins.</span>
+                </div>
+                <div class="service-card glass">
+                    <i data-lucide="book-open" class="service-icon"></i>
+                    <h3>Terapia de aprendizaje</h3>
+                    <p>Intervención en procesos de aprendizaje.</p>
+                    <span class="duration">50-60 mins.</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Process Section (Bento Inspired) -->
+    <section id="process" class="process-section">
+        <div class="container">
+            <div class="section-header centered">
+                <span class="section-tag">El Camino</span>
+                <h2>¿Cómo es el proceso en Mynd?</h2>
+            </div>
+            <div class="bento-process">
+                <div class="bento-item pos-1">
+                    <span class="step-num">01</span>
+                    <h3>Entrevista Inicial</h3>
+                    <p>Entendemos qué necesitas y definimos el mejor camino contigo.</p>
+                    <div class="bento-badge">50-60 mins</div>
+                </div>
+                <div class="bento-item pos-2">
+                    <span class="step-num">02</span>
+                    <h3>Evaluación</h3>
+                    <p>Aplicamos pruebas estandarizadas y escalas para obtener una impresión diagnóstica.</p>
+                </div>
+                <div class="bento-item pos-3 glass-highlight">
+                    <span class="step-num">03</span>
+                    <h3>Proceso Terapéutico</h3>
+                    <p>Iniciamos el tratamiento basado en tus resultados específicos y necesidades reales.</p>
+                </div>
+                <div class="bento-item pos-4">
+                    <span class="step-num">04</span>
+                    <h3>Seguimiento</h3>
+                    <p>Evaluamos avances y ajustamos el proceso para asegurar la efectividad.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section id="faq" class="faq-section">
+        <div class="container">
+            <div class="faq-layout">
+                <div class="faq-header">
+                    <h2>Preguntas <span class="highlight">Frecuentes</span></h2>
+                    <p>Todo lo que necesitas saber antes de empezar tu camino con nosotros.</p>
+                </div>
+                <div class="faq-list">
+                    <details class="faq-item">
+                        <summary>¿Necesito saber qué tengo para empezar? <i data-lucide="chevron-down"></i></summary>
+                        <p>No. Puedes iniciar sin un diagnóstico. En la entrevista inicial entendemos tu proceso y definimos el mejor camino.</p>
+                    </details>
+                    <details class="faq-item">
+                        <summary>¿Todas las personas necesitan evaluación? <i data-lucide="chevron-down"></i></summary>
+                        <p>No siempre. Solo lo recomendamos cuando realmente aporta claridad para intervenir mejor.</p>
+                    </details>
+                    <details class="faq-item">
+                        <summary>¿Atienden niños y adultos? <i data-lucide="chevron-down"></i></summary>
+                        <p>Sí. Trabajamos con niños, adolescentes y adultos, adaptando la intervención a cada etapa.</p>
+                    </details>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer / Contact -->
+    <footer id="contact" class="main-footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <span class="logo-text">mynd</span>
+                    <p>Donde las mentes se entienden.</p>
+                    <div class="social-links">
+                        <a href="#"><i data-lucide="facebook"></i></a>
+                        <a href="#"><i data-lucide="instagram"></i></a>
+                        <a href="#"><i data-lucide="whatsapp"></i></a>
+                    </div>
+                </div>
+                <div class="footer-info">
+                    <h3>Ubicación</h3>
+                    <p>Av. Montenegro 2007, Trojes de Oriente II<br>CP 20115, Aguascalientes, Ags.</p>
+                </div>
+                <div class="footer-contact">
+                    <h3>Contacto</h3>
+                    <p>Tel: +52 (449) 545 8836</p>
+                    <p>Email: myndrecepcion@gmail.com</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Mynd Neurodesarrollo. Todos los derechos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script>
+        // Initialize Lucide icons
+        lucide.createIcons();
+    </script>
+</body>
+</html>
