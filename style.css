@@ -12,6 +12,10 @@
     --shadow-soft: 0 10px 25px -5px rgba(0, 0, 0, 0.05);
     --shadow-premium: 0 20px 50px -12px rgba(59, 130, 246, 0.15);
     
+    /* Animation Tokens */
+    --transition-main: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+    --transition-fast: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+    
     /* Typography */
     --font-heading: 'Playfair Display', serif;
     --font-body: 'Inter', sans-serif;
@@ -36,6 +40,37 @@ body {
     background-color: var(--bg-light);
     line-height: 1.6;
     overflow-x: hidden;
+    position: relative;
+}
+
+/* Background Animated Blobs */
+.bg-blobs {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    overflow: hidden;
+    pointer-events: none;
+}
+
+.blob {
+    position: absolute;
+    width: 600px;
+    height: 600px;
+    background: radial-gradient(circle, rgba(59, 130, 246, 0.08) 0%, transparent 70%);
+    filter: blur(80px);
+    border-radius: 50%;
+    animation: move 20s infinite alternate;
+}
+
+.blob-1 { top: -10%; right: -5%; animation-duration: 25s; }
+.blob-2 { bottom: 10%; left: -5%; background: radial-gradient(circle, rgba(96, 165, 250, 0.05) 0%, transparent 70%); animation-duration: 30s; animation-delay: -5s; }
+
+@keyframes move {
+    from { transform: translate(0, 0) scale(1); }
+    to { transform: translate(100px, 50px) scale(1.1); }
 }
 
 h1, h2, h3 {
@@ -166,6 +201,12 @@ h1, h2, h3 {
     line-height: 1.1;
     margin-bottom: 2rem;
     color: var(--secondary);
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
+}
+
+.hero-content h1 span {
+    display: inline-block;
+    transition: var(--transition-main);
 }
 
 .no-corrija {
@@ -365,11 +406,14 @@ h1, h2, h3 {
     border-radius: 2.5rem;
     background: white;
     position: relative;
-    transition: transform 0.3s ease;
+    transition: var(--transition-main);
+    border: 1px solid transparent;
 }
 
 .bento-item:hover {
-    transform: scale(1.02);
+    transform: translateY(-5px);
+    border-color: var(--glass-border);
+    box-shadow: var(--shadow-premium);
 }
 
 .pos-1 { grid-column: span 2; }
@@ -476,13 +520,41 @@ h1, h2, h3 {
 }
 
 /* Animations */
-.fade-in { animation: fadeIn 1s ease-out forwards; }
-.fade-in-delay { animation: fadeIn 1s ease-out 0.3s forwards; opacity: 0; }
+.fade-in { 
+    opacity: 0;
+    animation: fadeIn 1.2s cubic-bezier(0.23, 1, 0.32, 1) forwards; 
+}
+.fade-in-delay { 
+    opacity: 0;
+    animation: fadeIn 1.2s cubic-bezier(0.23, 1, 0.32, 1) 0.4s forwards; 
+}
 
 @keyframes fadeIn {
-    from { opacity: 0; transform: translateY(20px); }
+    from { opacity: 0; transform: translateY(40px); }
     to { opacity: 1; transform: translateY(0); }
 }
+
+/* Stagger Children Animation Helper */
+.reveal-stagger > * {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.8s cubic-bezier(0.23, 1, 0.32, 1), 
+                transform 0.8s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.reveal-stagger.visible > * {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.reveal-stagger.visible > *:nth-child(1) { transition-delay: 0.1s; }
+.reveal-stagger.visible > *:nth-child(2) { transition-delay: 0.2s; }
+.reveal-stagger.visible > *:nth-child(3) { transition-delay: 0.3s; }
+.reveal-stagger.visible > *:nth-child(4) { transition-delay: 0.4s; }
+.reveal-stagger.visible > *:nth-child(5) { transition-delay: 0.5s; }
+.reveal-stagger.visible > *:nth-child(6) { transition-delay: 0.6s; }
+.reveal-stagger.visible > *:nth-child(7) { transition-delay: 0.7s; }
+.reveal-stagger.visible > *:nth-child(8) { transition-delay: 0.8s; }
 
 /* Responsive */
 @media (max-width: 1024px) {

@@ -5,12 +5,14 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Scroll Effect for Navbar
     window.addEventListener('scroll', () => {
-        if (window.scrollY > 100) {
+        if (window.scrollY > 50) {
             nav.style.top = '1rem';
             nav.style.padding = '0.5rem 2rem';
+            nav.style.background = 'rgba(255, 255, 255, 0.85)';
         } else {
             nav.style.top = '1.5rem';
             nav.style.padding = '0.75rem 2rem';
+            nav.style.background = 'rgba(255, 255, 255, 0.7)';
         }
 
         // Active Link Highlighting
@@ -18,7 +20,7 @@ document.addEventListener('DOMContentLoaded', () => {
         sections.forEach(section => {
             const sectionTop = section.offsetTop;
             const sectionHeight = section.clientHeight;
-            if (window.scrollY >= sectionTop - 200) {
+            if (window.scrollY >= sectionTop - 300) {
                 current = section.getAttribute('id');
             }
         });
@@ -33,7 +35,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Intersection Observer for Reveal Animations
     const observerOptions = {
-        threshold: 0.1
+        threshold: 0.15,
+        rootMargin: '0px 0px -50px 0px'
     };
 
     const observer = new IntersectionObserver((entries) => {
@@ -44,20 +47,46 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }, observerOptions);
 
-    document.querySelectorAll('.glass-card, .service-card, .bento-item, .faq-item').forEach(el => {
-        el.style.opacity = '0';
-        el.style.transform = 'translateY(30px)';
-        el.style.transition = 'all 0.8s cubic-bezier(0.4, 0, 0.2, 1)';
+    // Track scroll direction for a custom feel
+    let lastScrollTop = 0;
+    window.addEventListener('scroll', () => {
+        let st = window.pageYOffset || document.documentElement.scrollTop;
+        if (st > lastScrollTop) {
+            // Scrolling down - hide nav slightly?
+        } else {
+            // Scrolling up
+        }
+        lastScrollTop = st <= 0 ? 0 : st;
+    }, false);
+
+    // Apply observer to various elements
+    document.querySelectorAll('.glass-card, .service-card, .bento-item, .faq-item, .reveal-stagger').forEach(el => {
         observer.observe(el);
     });
 
-    // Add CSS class via JS instead of bulk editing CSS for simplicity in this turn
-    const style = document.createElement('style');
-    style.innerHTML = `
-        .visible {
-            opacity: 1 !important;
-            transform: translateY(0) !important;
-        }
-    `;
-    document.head.appendChild(style);
+    // Handle background move effect
+    document.addEventListener('mousemove', (e) => {
+        const x = e.clientX / window.innerWidth;
+        const y = e.clientY / window.innerHeight;
+        
+        const blobs = document.querySelectorAll('.blob');
+        blobs.forEach((blob, index) => {
+            const speed = (index + 1) * 20;
+            blob.style.transform = `translate(${x * speed}px, ${y * speed}px)`;
+        });
+    });
+
+    // Simple Smooth Scroll for internal links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            e.preventDefault();
+            const target = document.querySelector(this.getAttribute('href'));
+            if (target) {
+                window.scrollTo({
+                    top: target.offsetTop - 100,
+                    behavior: 'smooth'
+                });
+            }
+        });
+    });
 });
